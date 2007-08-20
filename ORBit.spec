@@ -56,7 +56,8 @@ Requires: glib-devel
 # (gb) starting of 0.5.17 version, I can't see any change requiring a
 # specific dep on release, aka rpmlint fix possible
 Requires: %{name} = %{version}
-Prereq: /sbin/install-info
+Requires(post): info-install
+Requires(preun): info-install
 # indent is called by orbit-idl
 Requires: indent
 Requires: tcp_wrappers-devel
