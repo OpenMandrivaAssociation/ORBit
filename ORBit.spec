@@ -4,7 +4,7 @@
 Summary: High-performance CORBA Object Request Broker
 Name: ORBit
 Version: 0.5.17
-Release: %mkrel 15
+Release: %mkrel 16
 Source0: ftp://ftp.gnome.org/pub/GNOME/stable/sources/ORBit//ORBit-%{version}.tar.bz2
 # (fc) 0.5.17-2mdk don't add -I/usr/include to LIBIDL_INCLUDEDIR
 Patch0:  ORBit-0.5.17-fixinclude.patch
@@ -23,7 +23,7 @@ BuildRequires:	glib-devel
 BuildRequires:	tcp_wrappers-devel
 %if %mdkversion >= 1010
 BuildRequires:  automake1.4
-BuildRequires:  autoconf2.5
+BuildRequires:  autoconf2.1
 %endif
 
 %description
@@ -81,16 +81,20 @@ technology.
 %setup -q
 %patch0 -p1 -b .fixinclude
 %patch1 -p1 -b .warnings
-%patch2 -p1 -b .ac25
+#%patch2 -p1 -b .ac25
 
 # needed by patches 0 & 2 and fix build
 # [gb] also update aclocal.m4 with new libtool.m4
 rm -f configure
-aclocal-1.4 && automake-1.4 && autoconf
+#aclocal-1.4
+#automake-1.4
+autoconf-2.13
 cd libIDL
 rm -f configure
 libtoolize --force
-aclocal-1.4 && automake-1.4 && autoconf
+#aclocal-1.4
+#automake-1.4
+autoconf-2.13
 cd ..
 
 # cputoolize to get updated config.{sub,guess}
