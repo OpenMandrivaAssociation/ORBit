@@ -15,7 +15,6 @@ Patch2:	 ORBit-0.5.17-ac25.patch
 Group: System/Libraries
 Url: http://www.gnome.org/
 License: LGPL/GPL
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires:	byacc
 BuildRequires:	flex
 BuildRequires:	gettext
