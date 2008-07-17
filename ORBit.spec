@@ -1,10 +1,12 @@
+%define _disable_ld_no_undefined 1
+
 %define major	0
 %define lib_name %mklibname %{name} %{major}
 
 Summary: High-performance CORBA Object Request Broker
 Name: ORBit
 Version: 0.5.17
-Release: %mkrel 16
+Release: %mkrel 17
 Source0: ftp://ftp.gnome.org/pub/GNOME/stable/sources/ORBit//ORBit-%{version}.tar.bz2
 # (fc) 0.5.17-2mdk don't add -I/usr/include to LIBIDL_INCLUDEDIR
 Patch0:  ORBit-0.5.17-fixinclude.patch
@@ -15,7 +17,6 @@ Patch2:	 ORBit-0.5.17-ac25.patch
 Group: System/Libraries
 Url: http://www.gnome.org/
 License: LGPL/GPL
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires:	byacc
 BuildRequires:	flex
 BuildRequires:	gettext
@@ -25,6 +26,7 @@ BuildRequires:	tcp_wrappers-devel
 BuildRequires:  automake1.4
 BuildRequires:  autoconf2.1
 %endif
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 ORBit is a high-performance CORBA ORB (object request
