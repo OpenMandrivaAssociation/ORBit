@@ -1,3 +1,4 @@
+%define _disable_ld_as_needed 1
 %define _disable_ld_no_undefined 1
 
 %define major	0
