@@ -7,7 +7,7 @@
 Summary: High-performance CORBA Object Request Broker
 Name: ORBit
 Version: 0.5.17
-Release: %mkrel 17
+Release: %mkrel 18
 Source0: ftp://ftp.gnome.org/pub/GNOME/stable/sources/ORBit//ORBit-%{version}.tar.bz2
 # (fc) 0.5.17-2mdk don't add -I/usr/include to LIBIDL_INCLUDEDIR
 Patch0:  ORBit-0.5.17-fixinclude.patch
@@ -15,9 +15,10 @@ Patch0:  ORBit-0.5.17-fixinclude.patch
 Patch1:	 ORBit-underquoted.patch
 # (fc) 0.5.17-9mdk fix build with autoconf 2.5x and libtool 1.5
 Patch2:	 ORBit-0.5.17-ac25.patch
+Patch3:	 ORBit-0.5.17-format-strings.patch
 Group: System/Libraries
 Url: http://www.gnome.org/
-License: LGPL/GPL
+License: LGPLv2+ and GPLv2+
 BuildRequires:	byacc
 BuildRequires:	flex
 BuildRequires:	gettext
@@ -85,6 +86,7 @@ technology.
 %patch0 -p1 -b .fixinclude
 %patch1 -p1 -b .warnings
 #%patch2 -p1 -b .ac25
+%patch3 -p1
 
 # needed by patches 0 & 2 and fix build
 # [gb] also update aclocal.m4 with new libtool.m4
@@ -109,7 +111,7 @@ cd ..
 %configure2_5x
 
 #don't use macro, parallel compilation is broken
-make
+make LIBTOOL=libtool
 
 # 1 test fails on ppc
 %ifnarch ppc
@@ -119,7 +121,7 @@ make check
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%makeinstall_std
+%makeinstall_std  LIBTOOL=libtool
 
 %multiarch_binaries $RPM_BUILD_ROOT%{_bindir}/orbit-config
 %multiarch_binaries $RPM_BUILD_ROOT%{_bindir}/libIDL-config
