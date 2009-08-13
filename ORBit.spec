@@ -24,6 +24,7 @@ BuildRequires:	flex
 BuildRequires:	gettext
 BuildRequires:	glib-devel
 BuildRequires:	tcp_wrappers-devel
+BuildRequires:	libtool
 %if %mdkversion >= 1010
 BuildRequires:  automake1.4
 BuildRequires:  autoconf2.1
