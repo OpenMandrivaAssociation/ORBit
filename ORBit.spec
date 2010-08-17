@@ -7,7 +7,7 @@
 Summary: High-performance CORBA Object Request Broker
 Name: ORBit
 Version: 0.5.17
-Release: %mkrel 18
+Release: %mkrel 19
 Source0: ftp://ftp.gnome.org/pub/GNOME/stable/sources/ORBit//ORBit-%{version}.tar.bz2
 # (fc) 0.5.17-2mdk don't add -I/usr/include to LIBIDL_INCLUDEDIR
 Patch0:  ORBit-0.5.17-fixinclude.patch
@@ -16,6 +16,7 @@ Patch1:	 ORBit-underquoted.patch
 # (fc) 0.5.17-9mdk fix build with autoconf 2.5x and libtool 1.5
 Patch2:	 ORBit-0.5.17-ac25.patch
 Patch3:	 ORBit-0.5.17-format-strings.patch
+Patch4: ORBit-0.5.17-fix-makefile.patch
 Group: System/Libraries
 Url: http://www.gnome.org/
 License: LGPLv2+ and GPLv2+
@@ -88,7 +89,7 @@ technology.
 %patch1 -p1 -b .warnings
 #%patch2 -p1 -b .ac25
 %patch3 -p1
-
+%patch4 -p1
 # needed by patches 0 & 2 and fix build
 # [gb] also update aclocal.m4 with new libtool.m4
 rm -f configure
