@@ -7,7 +7,7 @@
 Summary: High-performance CORBA Object Request Broker
 Name: ORBit
 Version: 0.5.17
-Release: %mkrel 19
+Release: %mkrel 20
 Source0: ftp://ftp.gnome.org/pub/GNOME/stable/sources/ORBit//ORBit-%{version}.tar.bz2
 # (fc) 0.5.17-2mdk don't add -I/usr/include to LIBIDL_INCLUDEDIR
 Patch0:  ORBit-0.5.17-fixinclude.patch
@@ -126,17 +126,11 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall_std  LIBTOOL=libtool
 
 %multiarch_binaries $RPM_BUILD_ROOT%{_bindir}/orbit-config
+
 %multiarch_binaries $RPM_BUILD_ROOT%{_bindir}/libIDL-config
 
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/CORBA/servers
 
-%if %mdkversion < 200900
-%post -n %{lib_name} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{lib_name} -p /sbin/ldconfig
-%endif
 
 %post -n %{lib_name}-devel
 %_install_info libIDL.info
@@ -166,8 +160,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc docs/*
 %{_bindir}/libIDL-config
 %multiarch %{_bindir}/multiarch-*/libIDL-config
+
 %{_bindir}/orbit-config
 %multiarch %{multiarch_bindir}/orbit-config
+
 %{_bindir}/orbit-idl
 %{_includedir}/*
 %{_infodir}/libIDL.info*
