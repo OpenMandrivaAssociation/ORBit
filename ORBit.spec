@@ -26,6 +26,7 @@ BuildRequires:	gettext
 BuildRequires:	glib-devel
 BuildRequires:	tcp_wrappers-devel
 BuildRequires:	libtool
+BuildRequires:	libtool-base
 BuildRequires:	automake1.4
 BuildRequires:	autoconf2.1
 
