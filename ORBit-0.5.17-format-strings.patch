@@ -1,0 +1,12 @@
+diff -p -up ORBit-0.5.17/libIDL/util.c~ ORBit-0.5.17/libIDL/util.c
+--- ORBit-0.5.17/libIDL/util.c~	2002-06-06 13:07:30.000000000 +0200
++++ ORBit-0.5.17/libIDL/util.c	2009-08-13 13:16:48.000000000 +0200
+@@ -2542,7 +2542,7 @@ static gboolean IDL_output_delim_pre (ID
+ {
+ 	if (IDL_output_delim_match (tfd, delim)) {
+ 		if (delim->hit)
+-			dataf (delim->data, delim->delim);
++			dataf (delim->data, "%s", delim->delim);
+ 		else
+ 			delim->hit = TRUE;
+ 		return delim->pre_func

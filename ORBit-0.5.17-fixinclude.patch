@@ -1,0 +1,32 @@
+--- ORBit-0.5.17/libIDL/configure.in.fixinclude	2002-06-06 07:07:28.000000000 -0400
++++ ORBit-0.5.17/libIDL/configure.in	2005-02-28 10:32:53.818546208 -0500
+@@ -45,8 +46,8 @@ AC_DEFINE_UNQUOTED(LIBIDL_INTERFACE_AGE,
+ AC_DEFINE_UNQUOTED(LIBIDL_BINARY_AGE, $LIBIDL_BINARY_AGE)
+ AC_DEFINE_UNQUOTED(LIBIDL_LIBRARY_VERSION, "$LIBIDL_LIBRARY_VERSION")
+ 
+-LIBIDL_INCLUDEDIR='@GLIB_CFLAGS@ -I${includedir}'
+-LIBIDL_LIBDIR='-L${libdir}'
++LIBIDL_INCLUDEDIR='@GLIB_CFLAGS@'
++LIBIDL_LIBDIR=''
+ LIBIDL_LIBS="-lIDL @GLIB_LIBS@"
+ AC_SUBST(LIBIDL_LIBDIR)
+ AC_SUBST(LIBIDL_LIBS)
+--- ORBit-0.5.17/orbit-config.in.fixinclude	2002-06-06 07:07:26.000000000 -0400
++++ ORBit-0.5.17/orbit-config.in	2005-02-28 10:33:53.679621474 -0500
+@@ -4,7 +4,6 @@ prefix=@prefix@
+ exec_prefix=@exec_prefix@
+ exec_prefix_set=no
+ includedir=@includedir@/orbit-1.0
+-libdir=@libdir@
+ 
+ usage()
+ {
+@@ -87,7 +86,7 @@ while test $# -gt 0; do
+        	;;
+ 
+     client|server)
+-	the_libs="$the_libs -L$libdir -lORBit -lIIOP -lORBitutil `glib-config --libs` @LIBS@ -lm"
++	the_libs="$the_libs -lORBit -lIIOP -lORBitutil `glib-config --libs` @LIBS@ -lm"
+         the_flags="$the_flags `glib-config --cflags` "
+         test "x$includedir" = "x/usr/include" \
+           || the_flags="$the_flags -I$includedir "

@@ -1,0 +1,37 @@
+--- ORBit-0.5.17/libIDL/configure.in.ac25	2004-10-01 15:30:24.604776694 +0200
++++ ORBit-0.5.17/libIDL/configure.in	2004-10-01 15:30:24.615777390 +0200
+@@ -3,7 +3,8 @@
+ 
+ AC_INIT(IDL.h.new.in)
+ 
+-AC_DIVERT_PUSH(AC_DIVERSION_NOTICE)dnl
++ifdef([AC_DIVERSION_NOTICE], [AC_DIVERT_PUSH(AC_DIVERSION_NOTICE)],
++			     [AC_DIVERT_PUSH(NOTICE)])
+ #
+ # Making releases:
+ #   LIBIDL_MICRO_VERSION += 1;
+--- ORBit-0.5.17/src/IIOP/Makefile.am.ac25	2002-06-06 13:07:34.000000000 +0200
++++ ORBit-0.5.17/src/IIOP/Makefile.am	2004-10-01 15:32:52.451800081 +0200
+@@ -36,20 +36,11 @@
+ 	iiop-encoders.h \
+ 	iiop-endian.h
+ 
+-libIIOP_la_LIBADD=$(libwrap_files) $(libwrap_deps)
++libIIOP_la_LIBADD=-lwrap
+ 
+-$(libwrap_files): make_libwrap_files
+-
+-make_libwrap_files: $(LIBWRAP_PATH)
+-	ar x $(LIBWRAP_PATH)
+-	for I in $(basename $(libwrap_files)); do mv $$I.o $$I.lo; done
+-	ar x $(LIBWRAP_PATH)
+-	touch make_libwrap_files
+-
+-BUILT_SOURCES=$(libwrap_files)
++BUILT_SOURCES=
+ 
+ libIIOP_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
+ 
+ EXTRA_DIST = IIOP-design.txt
+ 
+-CLEANFILES=make_libwrap_files

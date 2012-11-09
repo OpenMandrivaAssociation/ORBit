@@ -1,0 +1,19 @@
+diff -p -up ORBit-0.5.17/popt/intl/Makefile.in~ ORBit-0.5.17/popt/intl/Makefile.in
+--- ORBit-0.5.17/popt/intl/Makefile.in~	1999-09-29 23:12:45.000000000 +0200
++++ ORBit-0.5.17/popt/intl/Makefile.in	2010-08-17 11:22:15.000000000 +0200
+@@ -199,15 +199,6 @@ Makefile: Makefile.in ../config.status
+ 	cd .. \
+ 	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+ 
+-# The dependency for intlh.inst is different in gettext and all other
+-# packages.  Because we cannot you GNU make features we have to solve
+-# the problem while rewriting Makefile.in.
+-@GT_YES@intlh.inst: intlh.inst.in ../config.status
+-@GT_YES@	cd .. \
+-@GT_YES@	&& CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= \
+-@GT_YES@	  $(SHELL) ./config.status
+-@GT_NO@.PHONY: intlh.inst
+-@GT_NO@intlh.inst:
+ 
+ # Tell versions [3.59,3.63) of GNU make not to export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
