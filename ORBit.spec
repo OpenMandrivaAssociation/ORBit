@@ -7,7 +7,7 @@
 Summary:	High-performance CORBA Object Request Broker
 Name:		ORBit
 Version:	0.5.17
-Release:	21
+Release:	22
 Group:		System/Libraries
 License:	LGPLv2+ and GPLv2+
 Url:		http://www.gnome.org/
@@ -106,7 +106,7 @@ cd ..
 %configure2_5x
 
 #don't use macro, parallel compilation is broken
-make LIBTOOL=libtool
+%make LIBTOOL=libtool -j1
 
 # 1 test fails on ppc
 %ifnarch ppc
@@ -152,15 +152,15 @@ mkdir -p %{buildroot}%{_sysconfdir}/CORBA/servers
 %{_datadir}/aclocal/*
 
 %changelog
-* Thu Aug 18 2011 Götz Waschk <waschk@mandriva.org> 0.5.17-20mdv2012.0
+* Thu Aug 18 2011 GÃ¶tz Waschk <waschk@mandriva.org> 0.5.17-20mdv2012.0
 + Revision: 695115
 - workaround breakage of the macro multiarch
 
-* Tue Aug 17 2010 Götz Waschk <waschk@mandriva.org> 0.5.17-19mdv2011.0
+* Tue Aug 17 2010 GÃ¶tz Waschk <waschk@mandriva.org> 0.5.17-19mdv2011.0
 + Revision: 570901
 - fix build
 
-* Thu Aug 13 2009 Götz Waschk <waschk@mandriva.org> 0.5.17-18mdv2010.0
+* Thu Aug 13 2009 GÃ¶tz Waschk <waschk@mandriva.org> 0.5.17-18mdv2010.0
 + Revision: 416010
 - update build deps
 - fix format strings
@@ -221,7 +221,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/CORBA/servers
 * Thu Jul 31 2003 Gwenole Beauchesne <gbeauchesne@mandrakesoft.com> 0.5.17-6mdk
 - cputoolize, update aclocal.m4 with new libtool.m4
 
-* Thu Jul 10 2003 G�tz Waschk <waschk@linux-mandrake.com> 0.5.17-5mdk
+* Thu Jul 10 2003 Götz Waschk <waschk@linux-mandrake.com> 0.5.17-5mdk
 - rebuild for new rpm
 
 * Wed Jun 04 2003 Frederic Crozat <fcrozat@mandrakesoft.com> - 0.5.17-4mdk
