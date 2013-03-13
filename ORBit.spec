@@ -107,7 +107,7 @@ cd ..
 LIBTOOL='/usr/bin/libtool --tag=CC' %configure2_5x
 
 #don't use macro, parallel compilation is broken
-%make LIBTOOL=libtool -j1
+%make LIBTOOL='libtool --tag=CC' -j1
 
 # 1 test fails on ppc
 %ifnarch ppc
