@@ -104,7 +104,7 @@ cd ..
 %{?__cputoolize: %{__cputoolize} -c libIDL}
 
 %build
-%configure2_5x
+LIBTOOL='/usr/bin/libtool --tag=CC' %configure2_5x
 
 #don't use macro, parallel compilation is broken
 %make LIBTOOL=libtool -j1
