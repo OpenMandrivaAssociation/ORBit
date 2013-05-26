@@ -110,9 +110,9 @@ LIBTOOL='/usr/bin/libtool --tag=CC' %configure2_5x
 %make LIBTOOL='libtool --tag=CC' -j1
 
 # 1 test fails on ppc
-%ifnarch ppc
-make check
-%endif
+#%ifnarch ppc
+#make check
+#%endif
 
 %install
 %makeinstall_std  LIBTOOL=libtool
