@@ -138,11 +138,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/CORBA/servers
 %files -n %{lib_name}-devel
 %doc docs/*
 %{_bindir}/libIDL-config
-%{multiarch_bindir}/multiarch-*/libIDL-config
-
+%{multiarch_bindir}/libIDL-config
 %{_bindir}/orbit-config
 %{multiarch_bindir}/orbit-config
-
 %{_bindir}/orbit-idl
 %{_includedir}/*
 %{_infodir}/libIDL.info*
