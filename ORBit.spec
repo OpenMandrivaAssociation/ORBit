@@ -8,7 +8,7 @@
 Summary:	High-performance CORBA Object Request Broker
 Name:		ORBit
 Version:	0.5.17
-Release:	22
+Release:	23
 Group:		System/Libraries
 License:	LGPLv2+ and GPLv2+
 Url:		http://www.gnome.org/
