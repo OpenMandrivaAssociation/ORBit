@@ -11,7 +11,7 @@ Version:	0.5.17
 Release:	23
 Group:		System/Libraries
 License:	LGPLv2+ and GPLv2+
-Url:		http://www.gnome.org/
+Url:		https://www.gnome.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/ORBit//ORBit-%{version}.tar.bz2
 # (fc) 0.5.17-2mdk don't add -I/usr/include to LIBIDL_INCLUDEDIR
 Patch0:		ORBit-0.5.17-fixinclude.patch
